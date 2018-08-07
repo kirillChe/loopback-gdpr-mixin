@@ -1,0 +1,75 @@
+{
+    "name": "ModelName",
+    "base": "PersistedModel",
+    "options": {
+        "validateUpsert": true,
+        "mysql": {
+            "table": "model_name"
+        }
+    },
+    "http": {
+        "path": "model-names"
+    },
+    "properties": {
+        "id": {
+            "id": true,
+            "type": "number",
+            "validations": {
+                "readonly": true
+            }
+        },
+        "email": {
+            "type": "string"
+        },
+        "phone": {
+            "type": "string"
+        },
+        "firstName": {
+            "type": "string",
+            "mysql": {
+                "columnName": "first_name"
+            }
+        },
+        "lastName": {
+            "type": "string",
+            "mysql": {
+                "columnName": "last_name"
+            }
+        },
+        "createdAt": {
+            "type": "date",
+            "mysql": {
+                "columnName": "created_at"
+            },
+            "validations": {
+                "readonly": true
+            }
+        },
+        "updatedAt": {
+            "type": "date",
+            "mysql": {
+                "columnName": "updated_at"
+            },
+            "validations": {
+                "readonly": true
+            }
+        }
+    },
+    "hidden": [],
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {},
+    "mixins": {
+        "Encryption": {
+            "fields": [
+                "email",
+                "phone",
+                "firstName",
+                "lastName"
+            ],
+            "secretKey": "a1d877d98979507cd9fe0a14fc918b9f",
+            "encryptionAlgorithm": "aes-128-ecb"
+        }
+    }
+}
